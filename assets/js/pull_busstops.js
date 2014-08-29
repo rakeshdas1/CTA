@@ -1,4 +1,4 @@
-$.getJSON('http://data.cityofchicago.org/resource/jyb9-n7fm.json', function(bstops){
+$.getJSON('assets/js/busstops.json', function(bstops){
 	$('#bstoplist').empty();
 
 	$.each(bstops, function(i, bstop){
@@ -12,13 +12,13 @@ $.getJSON('http://data.cityofchicago.org/resource/jyb9-n7fm.json', function(bsto
 
 });
 
-function generateLStopLink(Bstop){
+function generateBStopLink(bstop){
 	return '<li><a href="javascript:void(0)'
 			+'"onclick="gotoStopDetailPage(\''
-			+bstop.route
+			+bstop.stop_name
 			+'\',\''
-			+bstop.rides+'\')">'
-			+bstop.route
+			+bstop.stop_desc+'\')">'
+			+bstop.stop_name
 			+'</a></li>';
 }
 function goToStopDetailPage (stopName){
